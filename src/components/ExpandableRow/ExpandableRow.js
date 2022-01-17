@@ -2,6 +2,7 @@ import * as React from 'react';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
 import { Typography, TableRow, Box, Collapse, IconButton, Table, TableBody, TableCell, TableHead } from '@material-ui/core'
+import './ExpandableRow.css';
 
 const ExpandableRow = ({ row }) => {
     const [open, setOpen] = React.useState(false);
@@ -21,7 +22,7 @@ const ExpandableRow = ({ row }) => {
                 <TableCell align="centre" component="th" scope="row">
                     {row.title}
                 </TableCell>
-                <TableCell align="centre">{row.author}</TableCell>
+                <TableCell align="centre">{row.author!==null ? row.author : <div className='unknown'><i>Unknown</i></div>}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>

@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import {  withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -17,7 +17,9 @@ const TableHead = withStyles((theme) => ({
     }
 }))(MuiTableHead);
 
-const CollapsableTable = ({ rows }) => {
+const CollapsableTable = ({ rows, title, author }) => {
+
+
 
     return (
         <TableContainer component={Paper}>
@@ -30,9 +32,21 @@ const CollapsableTable = ({ rows }) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row, index) => (
-                        <ExpandableRow key={index} row={row} />
+                    {author==='unknown' && rows.filter(row => row.author===null).map((frow, index) => (
+                        <ExpandableRow key={index} row={frow} />
                     ))}
+                    {title === '' && author==='' && rows.map((row, index) => (
+                        <ExpandableRow key={index} row={row} />
+                    ))
+                    }
+                    {title === '' && author!=='' ? rows.filter(row => row.author.includes(author)).map((frow, index) => (
+                        <ExpandableRow key={index} row={frow} />
+                    ))
+                        : rows.filter(row => row.title.includes(title)).map((frow, index) => (
+                        <ExpandableRow key={index} row={frow} />
+                    ))
+                    }
+
                 </TableBody>
             </Table>
         </TableContainer>
