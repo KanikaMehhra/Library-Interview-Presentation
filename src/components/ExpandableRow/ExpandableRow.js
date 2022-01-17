@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
 import { Typography, TableRow, Box, Collapse, IconButton, Table, TableBody, TableCell, TableHead } from '@material-ui/core'
@@ -19,10 +18,10 @@ const ExpandableRow = ({ row }) => {
                         {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
                     </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">
+                <TableCell align="centre" component="th" scope="row">
                     {row.title}
                 </TableCell>
-                <TableCell align="right">{row.author}</TableCell>
+                <TableCell align="centre">{row.author}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>

@@ -25,8 +25,8 @@ const CollapsableTable = ({ rows }) => {
                 <TableHead>
                     <TableRow>
                         <TableCell />
-                        <TableCell align="left">Title</TableCell>
-                        <TableCell align="right">Author</TableCell>
+                        <TableCell align="centre">Title</TableCell>
+                        <TableCell align="centre">Author</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
